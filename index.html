@@ -3,15 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JS, Lesson-1</title>
+  <title>JS, Lesson-4</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="p-5 row">
   
+  <div class="js-code container container-lg w-50 px-3 py-2 bg-light">
+    <h3 class="text-center mb-3">JavaScript code</h3>
+    <p class="mb-0" 
+      <span class="text-primary">var</span>
+      <span class="text-info">celcy</span> = '';<br>
+      <span class="text-primary">var</span> 
+      <span class="text-info">farengey</span> = '';<br><br>
+      
+      <span class="text-primary">var</span> elTempForm = document.querySelector(<span class="text-danger">'.temp-form'</span>);<br>
+      <span class="text-primary">var</span> 
+      <span class="text-info">elCelcyInput</span> = <span class="text-info">elTempForm</span>.querySelector(<span class="text-danger">'.celcy-input'</span>);<br>
+      <span class="text-primary">var</span> 
+      <span class="text-info">elFarengeyInput</span> = <span class="text-info">elTempForm</span>.querySelector(<span class="text-danger">'.farengey-input'</span>);<br>
+      <span class="text-primary">var</span> 
+      <span class="text-info">elResult</span> = 
+      <span class="text-info">document</span>.querySelector(<span class="text-danger">'.reslut'</span>);<br><br>
+      
+      <span class="text-primary">var</span> convertCelcyToFarengey = <span class="text-primary">function</span>() {<br>
+        <span class="text-info">celcy</span> = parseFloat(<span class="text-info">elCelcyInput.value</span>.trim(), 10);<br>
+        <span class="text-info">celcy</span> = parseFloat(<span class="text-info">celcy</span>.toFixed(1), 10);<br>
+        <span class="text-info">farengey</span> = parseFloat(<span class="text-info">celcy</span> * 9 / 5) + 32, 10);<br>
+        <span class="text-info">farengey</span> = parseFloat(<span class="text-info">farengey</span>.toFixed(1), 10);<br><br>
+        
+        <span class="text-info">elFarengeyInput.value</span> = `${<span class="text-info">farengey</span>}`;<br>
+      }<br><br>
+      
+      <span class="text-info">elTempForm.</span>addEventListener(<span class="text-danger">'submit'</span>, <span class="text-primary">function</span> (evt){<br>
+        <span class="text-info">evt.</span>preventDefault();<br><br>
+        
+        convertCelcyToFarengey();<br>
+      });<br><br>
+      
+      <span class="text-info">elTempForm.</span>addEventListener(<span class="text-danger">'keyup'</span>, <span class="text-primary">function</span> (){<br>
+        convertCelcyToFarengey();<br>
+      });
+    </p>
+  </div>
 
+  
+  <div class="container container-lg w-50">
+    <div class="html-code text-center py-3 mb-4">
+      <h3 class="mb-3">HTML code</h3>
+      <img src="img/code.png" alt="HTML Code" width="600">
+    </div>
+    
+    <div class="exercise text-center mb-5 text-info">
+      <h2 class="heading mb-3 text-danger">Temperature convertor</h2>
+      
+      <form class="temp-form w-100 mb-3 mx-auto bg-light p-3" action="https://echo.htmlacademy.ru" method="GET">
+        
+        <div class="form-group mb-4 pl-0">
+          <label class="m-0 mb-3 pl-0" for="celcy-input">Temperature in Celsius (C)</label>
+          <input class="form-control celcy-input" type="number" id="celcy-input" name="celcy" placeholder="30.0 C" step="any" required>
+        </div>
+        
+        <div class="form-group mb-4 pl-0">
+          <label class="m-0 mb-3 pl-0" for="farengey-input">Temperature in Fahrenheit (F)</label>
+          <input class="form-control farengey-input" type="number" id="farengey-input" name="farengey" placeholder="86.0 F" step="any" readonly>
+        </div>
+        
+        <button class="btn btn-success d-block w-100 mb-2" type="submit">Convert</button>
+      </form>
+    </div>
+  </div>
+  
+  
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
